@@ -21,25 +21,25 @@ This part will simulate the buck converter using LTSpice. The design parameters 
 
 $$  V_{IN} - V_{SW} - V_{OUT} = L \times \frac{\Delta I}{t_{ON}} $$
 
-Let's assume the voltage across the switch when it is ON  $$V_{SW} \approx 1 V$$ and the forward drop across the catch diode $$V_D \approx 1 V$$ for a schottky diode. The conduction time $$t_{ON}$$ calculated as follows.
+Let's assume the voltage across the switch when it is ON  $V_{SW} \approx 2.75 V$ and the forward drop across the catch diode $V_D \approx 0.7 V$ for a schottky diode. The conduction time $t_{ON}$ calculated as follows.
 
-$$ t_{ON} = \frac{V_{OUT} + V_{D}}{(V_{IN} - V_{SW} + V_{D})f_S} = \frac{5 + 1.5}{(24 -1+ 1.5)20k}=13.3 \mu s$$
+$$ t_{ON} = \frac{V_{OUT} + V_{D}}{(V_{IN} - V_{SW} + V_{D})f_S} = \frac{5 + 0.7}{(24 -2.75+ 0.7)20k}=13 \mu s$$
 
-such that the duty cycle $D = t_{ON} \times f_S = 26.6 \\%$
+such that the duty cycle $D = t_{ON} \times f_S = 26 \\%$
 
-Since, for loop stability reasons, we should not use any output capacitor of less than 100 $$m\Omega$$, and since we do not wish to use an LC post filter, our $$\Delta I$$ must be:
+Since, for loop stability reasons, we should not use any output capacitor of less than 100 $m\Omega$, and since we do not wish to use an LC post filter, our $\Delta I$ must be:
 
   $$ \Delta I = \frac{V_{OUT} \times \Delta V_{OUT}}{R_{Cap}} = \frac{5 \times 0.5 \\%}{100m}=250mA$$
 
 Therefore, the inductor value is
 
-$$  L = \frac{(V_{IN} - V_{SW} - V_{OUT})t_{ON}}{\Delta I}  =  \frac{(24 - 1 - 5)13.3 \mu }{250m} \approx 1mH$$
+$$  L = \frac{(V_{IN} - V_{SW} - V_{OUT})t_{ON}}{\Delta I}  =  \frac{(24 - 0.7 - 5)13 \mu }{250m} \approx 0.85mH$$
 
 ### Rectifier Diode Selection
 
 It is recommended to use schottky diodes for better efficiency. The forward current rating needed is equal to the maximum output current calculated as follows.
 
-$$I_F=I_{OUT(max)}\times (1-D)=3.69A$$
+$$I_F=I_{OUT(max)}\times (1-D)=3.7A$$
 
 ### Input Capacitor Selection
 

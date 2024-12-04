@@ -1,0 +1,10 @@
+.param L=1m
+.param V_IN = 24
+.param f_S = 20k
+.param t_ON = 13u
+.param D = t_ON * f_S
+.param C_IN1 = 1m
+.param C_IN2 = .1u
+.param C_OUT = 22u
+.param R_G = 75
+.param R_L = 1

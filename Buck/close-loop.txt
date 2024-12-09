@@ -1,0 +1,31 @@
+.param L=1m
+.param V_IN = 24
+.param f_S = 20k
+.param t_ON = 13u
+.param D = t_ON * f_S
+.param C_IN1 = 1m
+.param C_IN2 = .1u
+.param C_OUT = 22u
+.param R_G = 75
+.param R_L = 1
+.param C_BOOT = 22u
+
+.param R_DIV1 = 30k
+.param R_DIV2 = 10k
+.param R_ZI = 22k
+.param C_ZI = 10n
+.param R_ZF = 10k
+.param C_ZF1 = 20n
+.param C_ZF2 = 0
+.param R_REF1 = 200k
+.param R_REF2 = 11k
+
+
+.param R_FOS = 10k
+.param R_1OS = 8k2
+.param R_OSC = 1k22
+.param C_OSC = 10n
+.param R_DIVREF1 = 10k
+.param R_DIVREF2 = 10k
+
+.param R_TP = 1k2

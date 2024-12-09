@@ -3,3 +3,12 @@ Buck/open-loop.net
 Buck/open-loop.op.raw
 Buck/open-loop.raw
 Buck/open-loop.fft
+Buck/feedback.log
+Buck/close-loop.fft
+Buck/close-loop.log
+Buck/close-loop.plt
+Buck/close-loop.raw
+Buck/feedback.net
+Buck/feedback.op.raw
+Buck/feedback.plt
+Buck/feedback.raw

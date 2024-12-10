@@ -12,11 +12,12 @@
 
 .param R_DIV1 = 30k
 .param R_DIV2 = 10k
-.param R_ZI = 22k
+.param R_ZI = 8k3
 .param C_ZI = 10n
-.param R_ZF = 10k
-.param C_ZF1 = 20n
-.param C_ZF2 = 0
+
+.param R_ZF = 12k2
+.param C_ZF1 = 24n7
+.param C_ZF2 = 690p
 .param R_REF1 = 200k
 .param R_REF2 = 11k
 

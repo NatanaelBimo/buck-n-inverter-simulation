@@ -1,0 +1,11 @@
+.subckt PLL a b c theta
+V1 N002 0 0
+XU3 N001 N004 N003 adder
+V2 N001 0 50
+XU4 N003 theta integral
+XU2 N002 N005 N004 PIcontrol Kp=10 Ki=50000
+XU1 a b c P001 P002 P003 clarke
+XU5 P001 P002 P003 theta N005 alphabetadq
+.lib pwr-ctrl.lib
+.lin PIcontrol.lib
+.ends PLL

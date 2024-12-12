@@ -1,0 +1,24 @@
+.model S1 SW(Ron=1n Roff=1Meg) Vt=0.5 Vh=0.2
+.model S2 SW(Ron=1n Roff=1Meg) Vt=0.5 Vh=0.2
+.model S3 SW(Ron=1n Roff=1Meg) Vt=0.5 Vh=0.2
+.model S4 SW(Ron=1n Roff=1Meg) Vt=0.5 Vh=0.2
+.model S5 SW(Ron=1n Roff=1Meg) Vt=0.5 Vh=0.2
+.model S6 SW(Ron=1n Roff=1Meg) Vt=0.5 Vh=0.2
+
+.param pi=3.14159
+.param V_dc=700
+.param V=311
+.param fs=1k
+.param T=1/fs
+.param Va=380
+.param m=Va/(0.612*V_dc)
+.param Vcarrier=Va/m
+.param R=1
+.param L=10m
+.param L_f=100m
+.param C_f=100u
+
+.param A = 311
+.param os = 0
+.param f_Hz = 50
+.param ph_deg = 0

@@ -1,0 +1,8 @@
+.subckt PIcontrol 1 2 3
+XU1 1 2 N001 subtract
+XU2 N001 N002 gain K=0.4
+XU3 N001 N004 gain K=50000
+XU4 N004 N003 integral
+XU5 N002 N003 3 adder
+.lib pwr-ctrl.lib
+.ends PIcontrol

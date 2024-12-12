@@ -1,0 +1,50 @@
+.subckt Yn3Phase OUTA OUTB OUTC N
+V1 OUTA N SINE({os} {A} {f_Hz} 0 0 {ph_deg})
+V2 OUTB N SINE({os} {A} {f_Hz} 0 0 {ph_deg-120})
+V3 OUTC N SINE({os} {A} {f_Hz} 0 0 {ph_deg+120})
+.ends Yn3Phase
+
+.subckt ClarkeTrans INA INB INC alpha beta gamma N
+B1 alpha N V=(2/3)*V(INA)-(1/3)*V(INB)-(1/3)*V(INC)
+B2 beta N V=(1/3)*sqrt(3)*V(INB)-(1/3)*sqrt(3)*V(INC)
+B3 gamma N V=(1/3)*(V(INA)+V(INB)+V(INC))
+.ends ClarkeTrans
+
+.subckt ParkTrans a b c theta d q zero
+B1 d 0 V=(2/3)*(cos(V(theta))*V(a)+cos(V(theta)-shift)*V(b)+cos(V(theta)+shift)*V(c))
+B2 q 0 V=(2/3)*(-sin(V(theta))*V(a)-sin(V(theta)-shift)*V(b)-sin(V(theta)+shift)*V(c))
+B3 zero 0 V=(1/3)*(V(a)+V(b)+V(c))
+.param pi=3.14159265359
+.param shift=(2*pi/3)
+.ends park
+
+.subckt integral 1 2
+B1 N001 0 V={V(1)}
+B2 2 0 V={I(L1)}
+L1 N002 0 1
+R1 N002 N001 1p
+.end integral
+
+.subckt gain 1 2
+B1 2 0 V={K*V(1)}
+.end gain
+
+.subckt adder 1 2 3
+B1 3 0 V=V(1)+V(2) 
+.end adder
+
+.subckt triangle 1
+V1 1 0 PULSE({Vc} 0 0 {Tc/2} {Tc/2} 0 {Tc})
+.ends triangle
+
+.subckt subtract 1 2 3
+B1 3 0 V=V(1)-V(2)
+.end subtract
+
+.subckt compare 1 2 3
+B1 3 0 V=if(V(1)>V(2), {Von}, 0)
+.ends compare
+
+.subckt alphabetadq alpha beta zero theta q
+B2 q 0 V=-1*V(alpha)*sin(V(theta))+V(beta)*cos(V(theta))+0*V(zero)
+.ends alphabetadq
